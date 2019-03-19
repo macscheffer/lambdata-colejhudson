@@ -56,9 +56,16 @@ def confusion_matrix(true, pred):
     pred = pd.Series(pred)
 
     classes = true.unique()
-    assert classes.size == 2, "good god man, this is for demonstrations purposes only, for the love of all that is good, use scikit-learn instead."
 
-    pos, neg = classes 
+    err_msg = """
+        good god man, this is for demonstrations purposes only.
+        For the love of all that is holy, use scikit-learn instead.
+
+        >>> from sklearn.metrics import confusion_matrix
+    """
+    assert classes.size == 2, err_msg
+
+    pos, neg = classes
 
     tp = pred[(true == pos) & (pred == pos)].size
     fp = pred[(true == pos) & (pred == neg)].size
