@@ -1,11 +1,17 @@
+"""
+    Description
+    -----------
+    An example python package
+"""
+
 import pandas as pd
 import numpy as np
 
-def hasna(df):
+def hasna(dataframe):
     """
         Parameters
         ----------
-        df: pandas.DataFrame
+        dataframe: pandas.DataFrame
             Non-empty DataFrame
 
         Returns
@@ -25,7 +31,7 @@ def hasna(df):
         1     True
         dtype: bool
     """
-    mask = df.isna().sum().apply(lambda nancount: nancount > 0)
+    mask = dataframe.isna().sum().apply(lambda nancount: nancount > 0)
 
     return mask
 
@@ -67,11 +73,11 @@ def confusion_matrix(true, pred):
 
     pos, neg = classes
 
-    tp = pred[(true == pos) & (pred == pos)].size
-    fp = pred[(true == pos) & (pred == neg)].size
-    tn = pred[(true == neg) & (pred == neg)].size
-    fn = pred[(true == neg) & (pred == pos)].size
+    true_positives = pred[(true == pos) & (pred == pos)].size
+    false_positives = pred[(true == pos) & (pred == neg)].size
+    true_negatives = pred[(true == neg) & (pred == neg)].size
+    false_negatives = pred[(true == neg) & (pred == pos)].size
 
-    mat = np.array([[tp, fp], [fn, tn]])
+    mat = np.array([[true_positives, false_positives], [false_negatives, true_negatives]])
 
     return mat
