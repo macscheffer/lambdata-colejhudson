@@ -3,6 +3,21 @@ import numpy as np
 
 def hasna(df):
     """
+        Parameters
+        ----------
+        df: pandas.DataFrame
+            Non-empty DataFrame
+
+        Returns
+        -------
+        mask: pandas.Series, shape = [n_columns]
+            A series of booleans indicating whether the
+            corresponding column contains any NaN values
+
+        Examples
+        --------
+        >>> import pandas as pd
+        >>> import numpy as np
         >>> import lambdata
         >>> foo = pd.DataFrame([[1, 2], [3, 4], [5, np.nan]])
         >>> lambdata.hasna(foo)
@@ -14,8 +29,22 @@ def hasna(df):
 
 def confusion_matrix(true, pred):
     """
+        Parameters
+        ----------
+        true: numpy.ndarray, shape = [n]
+            Actual classes
+        pred: numpy.ndarray, shape = [n]
+            Predicted classes
+
+        Returns
+        -------
+        mat: numpy.ndarray, shape = [2, 2]
+            Confusion matrix
+
+        Examples
+        --------
         >>> import lambdata
-        >>> true = ["foo", "foo", "bar", "foo", "bar"] 
+        >>> true = ["foo", "foo", "bar", "foo", "bar"]
         >>> pred = ["foo", "bar", "foo", "foo", "bar"]
         >>> lambdata.confusion_matrix(true, pred)
         array([[2, 1],
