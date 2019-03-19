@@ -6,8 +6,9 @@ def hasna(df):
         >>> import lambdata
         >>> foo = pd.DataFrame([[1, 2], [3, 4], [5, np.nan]])
         >>> lambdata.hasna(foo)
-        1: False
-        2: True
+        0    False
+        1     True
+        dtype: bool
     """
     return df.isna().sum().apply(lambda nancount: nancount > 0)
 
@@ -17,8 +18,8 @@ def confusion_matrix(true, pred):
         >>> true = ["foo", "foo", "bar", "foo", "bar"] 
         >>> pred = ["foo", "bar", "foo", "foo", "bar"]
         >>> lambdata.confusion_matrix(true, pred)
-        [[2, 1]
-         [1, 1]]
+        array([[2, 1],
+               [1, 1]])
     """
     true = pd.Series(true)
     pred = pd.Series(pred)
