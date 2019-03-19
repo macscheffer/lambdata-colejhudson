@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="lambdata-colejhudson",
-    version="0.0.2",
+    version="0.0.3",
     author="Cole Hudson",
     author_email="cole@colejhudson.com",
     description="example python package",
