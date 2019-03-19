@@ -25,7 +25,9 @@ def hasna(df):
         1     True
         dtype: bool
     """
-    return df.isna().sum().apply(lambda nancount: nancount > 0)
+    mask = df.isna().sum().apply(lambda nancount: nancount > 0)
+
+    return mask
 
 def confusion_matrix(true, pred):
     """
@@ -63,4 +65,6 @@ def confusion_matrix(true, pred):
     tn = pred[(true == neg) & (pred == neg)].size
     fn = pred[(true == neg) & (pred == pos)].size
 
-    return np.array([[tp, fp], [fn, tn]])
+    mat = np.array([[tp, fp], [fn, tn]])
+
+    return mat
