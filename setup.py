@@ -9,7 +9,8 @@ setuptools.setup(
     url="https://github.com/colejhudson/lambdata-colejhudson",
     install_requires=[
         "numpy",
-        "pandas"
+        "pandas",
+        "sklearn"
     ],
     packages=setuptools.find_packages(),
 )
